@@ -35,7 +35,7 @@ android {
 2.在需要使用模块(一般为app)的 build.gradle 中添加依赖
 ``` Java
 dependencies {
-	        implementation 'com.github.EndureBlaze:GlideCache:1.0'
+	        implementation 'com.github.EndureBlaze:GlideCache:1.1'
 	}
 ```
 ### Maven
@@ -53,7 +53,7 @@ dependencies {
 	<dependency>
 	    <groupId>com.github.EndureBlaze</groupId>
 	    <artifactId>GlideCache</artifactId>
-	    <version>1.0</version>
+	    <version>1.1</version>
 	</dependency>
 ```
 ## 功能说明
