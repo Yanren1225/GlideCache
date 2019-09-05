@@ -10,6 +10,20 @@ import com.bumptech.glide.request.FutureTarget;
 
 public class GlideCache {
     private static Bitmap glideBitmap;
+
+    public static boolean isHaveGlideCache(Context context, String url){
+        FutureTarget<Bitmap> bitmap = Glide.with(context)
+                .asBitmap()
+                .load(url)
+                .submit();
+        try{
+            glideBitmap = bitmap.get();
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
     public static Bitmap getGlideBitmap(Context context, String url) {
         FutureTarget<Bitmap> bitmap = Glide.with(context)
                 .asBitmap()

@@ -8,7 +8,7 @@ GlideCache 最低支持到Android [Ice Cream Sandwich](https://developer.android
 可能需要配置 Java1.8(未测试)
 Java 1.8 配置方法
 在 build.gradle 下添加
-```Java
+``` Java
 android {
     ...
     }
@@ -25,7 +25,7 @@ android {
 ## 开始使用
 ### Gradle
 1.在项目根目录的 build.gradle 添加如下代码
-```Java
+``` Java
 	allprojects {
 		repositories {
 			maven { url 'https://jitpack.io' }
@@ -33,14 +33,14 @@ android {
 	}
 ```
 2.在需要使用模块(一般为app)的 build.gradle 中添加依赖
-```Java
+``` Java
 dependencies {
 	        implementation 'com.github.EndureBlaze:GlideCache:1.0'
 	}
 ```
 ### Maven
 1.首先需要添加 JitPack 仓库
-```HTML
+``` HTML
     <repositories>
 		<repository>
 		    <id>jitpack.io</id>
@@ -49,7 +49,7 @@ dependencies {
 	</repositories>
 ```
 2.然后添加依赖
-```HTML
+``` HTML
 	<dependency>
 	    <groupId>com.github.EndureBlaze</groupId>
 	    <artifactId>GlideCache</artifactId>
@@ -58,7 +58,7 @@ dependencies {
 ```
 ## 功能说明
 ### 设置 Glide 本地缓存图片到对应 ImageView
-```Java
+``` Java
 GlideCache.setNormalImageViaGlideCache(activity,imageview,image_url);
 ```
 #### 参数说明
@@ -66,8 +66,19 @@ activity：上下文，传入对应的 Activity即可
 imageview：你想把图片设置到的 ImageViwe
 image_url：在 Glide 添加图片时使用的 URL (一般为网络地址)
 
+### 获取这个目标是否在 Glide 里缓存
+``` Java
+GlideCache.isHaveGlideCache(activity,imageview,image_url);
+```
+#### 参数说明
+activity：上下文，传入对应的 Activity即可
+imageview：你想把图片设置到的 ImageViwe
+image_url：在 Glide 添加图片时使用的 URL (一般为网络地址)
+
+使用后返回布尔值
+
 ### 设置 Glide 本地缓存图片并且高斯模糊到对应 ImageView
-```Java
+``` Java
 GlideCache.setNormalImageViaGlideCache(activity,imageview,image_url,pattern);
 ```
 #### 参数说明
@@ -80,7 +91,7 @@ pattern：模糊程度 int 类型，数值从 0-10，数值越大越模糊，一
 ### 如果我只想模糊化图片(来源不是 Glide 缓存，比如是网络或者本地)呢？
 当然，这里也提供了对应的 api 以供调用
 #### 从网络图片进行模糊化
-```Java
+``` Java
 FatBlur.GetUrlBitmap(image_url, blurRadius)
 ```
 #### 参数说明
@@ -90,7 +101,7 @@ blurRadius：模糊程度，用法和 GlideCache 的 pattern 一致，设置为 
 使用后返回 bitmap 请注意接收
 
 #### 从本地图片进行模糊化
-```Java
+``` Java
 FatBlur.toBlur(bitmap, blurRadius)
 ```
 #### 参数说明
@@ -110,11 +121,11 @@ blurRadius：模糊程度，用法和 GlideCache 的 pattern 一致，设置为 
 
 ## 混淆(Proguard)
 如果你有使用 Proguard 请添加如下代码
-```Java
+``` Java
 -keep public class cn.endureblaze.glidecache.*
 ```
 以及 Glide 本身的混淆代码
-```Java
+``` Java
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule
 -keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
@@ -123,7 +134,7 @@ blurRadius：模糊程度，用法和 GlideCache 的 pattern 一致，设置为 
 }
 ```
 如果你的 target API 低于 Android API 27，请添加：
-```Java
+``` Java
 -dontwarn com.bumptech.glide.load.resource.bitmap.VideoDecoder
 ```
 ## 其他作品
