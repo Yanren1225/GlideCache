@@ -8,9 +8,18 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;
 
+/**
+ * 操作 Glide 缓存的工具类
+ */
 public class GlideCache {
     private static Bitmap glideBitmap;
 
+    /**
+     * 判断是否有缓存
+     * @param context 传入一个上下文
+     * @param url   判断是否有缓存的图片链接
+     * @return 返回 boolean 类型，有缓存返回 true，无缓存返回 false
+     */
     public static boolean isHaveGlideCache(Context context, String url){
         FutureTarget<Bitmap> bitmap = Glide.with(context)
                 .asBitmap()
@@ -24,6 +33,12 @@ public class GlideCache {
         return true;
     }
 
+    /**
+     * 获取 Glide 的缓存
+     * @param context 传入上下文
+     * @param url 在 Glide 添加图片时使用的 URL (一般为网络地址)
+     * @return 返回 Bitmap 类型的缓存
+     */
     public static Bitmap getGlideBitmap(Context context, String url) {
         FutureTarget<Bitmap> bitmap = Glide.with(context)
                 .asBitmap()
@@ -37,6 +52,12 @@ public class GlideCache {
         return glideBitmap;
     }
 
+    /**
+     * 给图片设置缓存里的图片
+     * @param activity 传入一个 Activity
+     * @param image 需要设置缓存图片的 ImageView
+     * @param imageUrl 在 Glide 添加图片时使用的 URL (一般为网络地址)
+     */
     public static void setNormalImageViaGlideCache(final Activity activity, final ImageView image, final String imageUrl) {
         new Thread(() -> {
             try {
@@ -47,6 +68,13 @@ public class GlideCache {
         }).start();
     }
 
+    /**
+     *
+     * @param activity 传入一个 Activity
+     * @param blurImage 需要设置缓存图片的 ImageView
+     * @param imageUrl 在 Glide 添加图片时使用的 URL (一般为网络地址)
+     * @param pattern 模糊程度
+     */
     public static void setBlurImageViaGlideCache(final Activity activity, final ImageView blurImage, final String imageUrl, final String pattern) {
 
         new Thread(() -> {

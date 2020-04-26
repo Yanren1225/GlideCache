@@ -1,4 +1,4 @@
-# GlideCache[![](https://jitpack.io/v/EndureBlaze/GlideCache.svg)](https://jitpack.io/#EndureBlaze/GlideCache)
+# GlideCache  [![](https://jitpack.io/v/EndureBlaze/GlideCache.svg)](https://jitpack.io/#EndureBlaze/GlideCache)
 一个可以方便快捷操作 Glide 本地缓存的开源库
 ## 性能
 方便调用，稳定，经过时间考验
@@ -23,6 +23,9 @@ android {
 }
 ```
 ## 开始使用
+
+> 版本号请查看顶部
+
 ### Gradle
 1.在项目根目录的 build.gradle 添加如下代码
 ``` Java
@@ -35,7 +38,7 @@ android {
 2.在需要使用模块(一般为app)的 build.gradle 中添加依赖
 ``` Java
 dependencies {
-	        implementation 'com.github.EndureBlaze:GlideCache:1.1'
+	        implementation 'com.github.EndureBlaze:GlideCache:$version'
 	}
 ```
 ### Maven
@@ -53,7 +56,7 @@ dependencies {
 	<dependency>
 	    <groupId>com.github.EndureBlaze</groupId>
 	    <artifactId>GlideCache</artifactId>
-	    <version>1.1</version>
+	    <version>$version</version>
 	</dependency>
 ```
 ## 功能说明

@@ -6,11 +6,17 @@ import android.graphics.BitmapFactory;
 import java.io.*;
 import java.net.URL;
 
+/**
+ * 模糊化图片的工具类
+ */
 public class FastBlur {
+
+    public static int IO_BUFFER_SIZE = 2 * 1024;
+
     /**
      * 根据imagepath获取bitmap
-     *
-     *
+     * <p>
+     * <p>
      * 得到本地或者网络上的bitmap url - 网络或者本地图片的绝对路径,比如:
      * <p>
      * A.网络路径: url="http://blog.foreverlove.us/girl2.png" ;
@@ -19,12 +25,9 @@ public class FastBlur {
      * <p>
      * C.支持的图片格式 ,png, jpg,bmp,gif等等
      *
-     * @param url
-     * @return
+     * @param url 图片地址
+     * @return Bitmap 类型的图片
      */
-    public static int IO_BUFFER_SIZE = 2 * 1024;
-
-
     public static Bitmap GetUrlBitmap(String url, int scaleRatio) {
 
 
@@ -66,8 +69,6 @@ public class FastBlur {
             out.write(b, 0, read);
         }
     }
-
-
 
 
     //    把本地图片毛玻璃化
