@@ -95,7 +95,7 @@ pattern：模糊程度 int 类型，数值从 0-10，数值越大越模糊，一
 当然，这里也提供了对应的 api 以供调用
 #### 从网络图片进行模糊化
 ``` Java
-FatBlur.GetUrlBitmap(image_url, blurRadius)
+FastBlur.GetUrlBitmap(image_url, blurRadius)
 ```
 #### 参数说明
 image_url：网络图片的地址
@@ -105,7 +105,7 @@ blurRadius：模糊程度，用法和 GlideCache 的 pattern 一致，设置为 
 
 #### 从本地图片进行模糊化
 ``` Java
-FatBlur.toBlur(bitmap, blurRadius)
+FastBlur.toBlur(bitmap, blurRadius)
 ```
 #### 参数说明
 bitmap：本地图片转化的 bitmap
